@@ -11,3 +11,5 @@
 
 # Deliverables
 # Make sure the new page is uploaded to your GitHub account.
+
+#Just making a change to report on how I'm doing. 11/6/16. Pretty grim, don't know where I should or how I could start the project. However, starting to understand nltk better, just need to go to office hours for more information.
