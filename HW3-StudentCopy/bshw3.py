@@ -11,3 +11,5 @@
 
 # Deliverables
 # Make sure the new page is uploaded to your GitHub account.
+
+#Just making another change for now as report. My situation right now is grim (11/6/16), but I'm sort of getting how to work nltk. Going to office hours to learn more
