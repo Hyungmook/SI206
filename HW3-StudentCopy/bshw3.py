@@ -14,11 +14,24 @@ soup = BeautifulSoup(r, 'lxml')
 texty= soup.prettify()
 texty = texty.replace("student", "AMAZING Student")
 
+texty = texty.replace("https://testbed.files.wordpress.com/2012/09/bsi_exposition_041316_192.jpg", "https://scontent-ord1-1.xx.fbcdn.net/v/t1.0-9/12932604_209461796088823_4218102651853099226_n.jpg?oh=8fd78f9284c09e43414839dd2d2cf6d4&oe=588C7468")
+texty = texty.replace("logo2.png", "logo.png")
+
+
 coup = open("steve.html", "w")
 
 coup.write(texty)
 
 coup.close()
+
+
+
+
+
+
+
+
+
 
 
 # tags = soup.find_all("div", {"class":"menu-block-wrapper menu-block-1 menu-name-main-menu parent-mlid-0 menu-level-2"})
