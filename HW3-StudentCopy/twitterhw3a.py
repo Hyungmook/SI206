@@ -22,24 +22,24 @@ auth.set_access_token(access_token,access_token_secret)
 api = tweepy.API(auth)
 #Now we can Create Tweets, Delete Tweets, and Find Twitter Users
 
-def tweet_image(url, message):
-    api = tweepy.API(auth)
-    filename = 'temp.jpg'
-    request = requests.get(url, stream=True)
-    if request.status_code == 200:
-        with open(filename, 'wb') as image:
-            for chunk in request:
-                image.write(chunk)
+# def tweet_image(url, message):
+#     api = tweepy.API(auth)
+#     filename = 'temp.jpg'
+#     request = requests.get(url, stream=True)
+#     if request.status_code == 200:
+#         with open(filename, 'wb') as image:
+#             for chunk in request:
+#                 image.write(chunk)
 
-        api.update_with_media(filename, status=message)
-        os.remove(filename)
-    else:
-        print("Unable to download image")
+#         api.update_with_media(filename, status=message)
+#         os.remove(filename)
+#     else:
+#         print("Unable to download image")
 
 
-url = "http://www.rd.com/wp-content/uploads/sites/2/2016/04/05-cat-wants-to-tell-you-bathing-myself.jpg"
-message = "Testing for a class using APIs"
-tweet_image(url, message)
+# url = "http://www.rd.com/wp-content/uploads/sites/2/2016/04/05-cat-wants-to-tell-you-bathing-myself.jpg"
+# message = "Testing for a class using APIs"
+# tweet_image(url, message)
 public_tweets = api.search('UMSI')
 
 
