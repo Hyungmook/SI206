@@ -14,21 +14,13 @@ debug = False #True
 # get file from user to make mad lib out of
 if debug:
 	print ("Getting information from file madlib_test.txt...\n")
-#fname = "madlib_test.txt" # need a file with this name in directory
 
-# f = open(fname, 'r')
-# para = f.read()
 tokens = text2[:150] #Making the tokens only read through the text2
-#nltk.word_tokenize(para)
+#nltk.word_tokenize(para) # Don't need this
 print("TOKENS")
 print(tokens)
 tagged_tokens = nltk.pos_tag(tokens) # gives us a tagged list of tuples
-# print("TAGGED TOKENS")
-# print(tagged_tokens)
-# if debug:
-# 	print ("First few tagged tokens are:")
-# 	for tup in tagged_tokens[:5]:
-# 		# print (tup)
+
 
 tagmap = {"NN":"a noun","NNS":"a plural noun","VB":"a verb","JJ":"an adjective"}
 substitution_probabilities = {"NN":.15,"NNS":.1,"VB":.1,"JJ":.1}
