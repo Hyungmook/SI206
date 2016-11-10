@@ -18,7 +18,7 @@ if debug:
 
 # f = open(fname, 'r')
 # para = f.read()
-tokens = text2[:150]
+tokens = text2[:150] #Making the tokens only read through the text2
 #nltk.word_tokenize(para)
 print("TOKENS")
 print(tokens)
