@@ -22,12 +22,10 @@ api = tweepy.API(auth)
 #Now we can Create Tweets, Delete Tweets, and Find Twitter Users
 
 public_tweets = api.search(input("Please give a Twitter search: "))
-count1 = 0
-count2 = 0
+count = 0
 polarcount = 0
 subjectcount = 0
-polar = []
-subject = []
+
 
 def uprint(*objects, sep='', end='\n', file=sys.stdout):
 	enc = file.encoding
@@ -40,25 +38,14 @@ def uprint(*objects, sep='', end='\n', file=sys.stdout):
 for tweet in public_tweets:
 	uprint(tweet.text)
 	analysis = TextBlob(tweet.text)
-	x = analysis.sentiment.polarity
-	polar.append(x)
-	for a in polar:
-		count1 += 1
-	y = analysis.sentiment.subjectivity
-	subject.append(y)
-	for b in subject:
-		count2 += 1
+	polarcount += analysis.sentiment.polarity
+	subjectcount += analysis.sentiment.subjectivity
+	count += 1
 
 
-for co in polar:
-	polarcount = polarcount + co
-for bo in subject:
-	subjectcount = subjectcount + bo
+polaravg = polarcount / count
+subjectavg = subjectcount / count
 
-polaravg = polarcount / count1
-subjectavg = subjectcount / count2
-print("\n", polar)
-print(subject, "\n")
 #You can use sentiment.polarity or sentiment.subjectivity
 
 #polarity -- measures how positive or negative
@@ -68,5 +55,5 @@ print(subject, "\n")
 # tweetz = input("Please do a Twitter search: ")
 
 
-print("Average subjectivity is ", polaravg)
-print("Average polarity is ", subjectavg)
+print("Average subjectivity is ", subjectavg)
+print("Average polarity is ", polaravg)
