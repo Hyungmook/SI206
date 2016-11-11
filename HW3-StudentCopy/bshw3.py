@@ -5,23 +5,27 @@ import requests
 
 
 
-
+#Set a variable with the url
 base_url = "http://collemc.people.si.umich.edu/data/bshw3StarterFile.html"
+#Requested to get info from the url
 r = urllib.request.urlopen(base_url).read()
+#Received the info into soup form
 soup = BeautifulSoup(r, 'lxml')
 
-
+#Made the soup variable into a string 
 texty= soup.prettify()
+#Replaced any student into Amazing student
 texty = texty.replace("student", "AMAZING Student")
-
+#Replaced the image with my own
 texty = texty.replace("https://testbed.files.wordpress.com/2012/09/bsi_exposition_041316_192.jpg", "https://scontent-ord1-1.xx.fbcdn.net/v/t1.0-9/12932604_209461796088823_4218102651853099226_n.jpg?oh=8fd78f9284c09e43414839dd2d2cf6d4&oe=588C7468")
+#Changed the logo with the logo that was provided
 texty = texty.replace("logo2.png", "logo.png")
 
-
+#Made the html file into the directory
 coup = open("steve.html", "w")
-
+#Write the data into the website
 coup.write(texty)
-
+#Is not necessary apparently but I closed the html file
 coup.close()
 
 
