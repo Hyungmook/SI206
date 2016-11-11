@@ -18,10 +18,11 @@ consumer_secret = "nUHPY4b6PedYd6swMyI3wYf4p9TFdvKg8pESJZH5c98PuEV2Iu"
 # Boilerplate code here
 auth = tweepy.OAuthHandler(consumer_key,consumer_secret)
 auth.set_access_token(access_token,access_token_secret)
-
+# Sets a variable with tweepy API 
 api = tweepy.API(auth)
-
+# Gets my image
 img = "tiny_cat_12573_8950.jpg"
+# Uploads the image with the caption into Twitter
 api.update_with_media(img, status="#UMSI-206 #Proj3")
 
 
