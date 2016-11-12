@@ -21,7 +21,8 @@ print("TOKENS")
 print(tokens)
 tagged_tokens = nltk.pos_tag(tokens) # gives us a tagged list of tuples
 
-
+# Has five different probabilities instead of four
+# Allows inputs to be selected randomly from these five
 tagmap = {"NN":"a noun","NNS":"a plural noun","NNP":"a proper noun","VB":"a verb","JJ":"an adjective"}
 substitution_probabilities = {"NN":.15,"NNS":.1, "NNP":.1,"VB":.1,"JJ":.1}
 
@@ -33,7 +34,7 @@ def spaced(word):
 
 final_words = []
 
-
+# Allows the user to input choices and receives those inputs
 for (word, tag) in tagged_tokens:
 	if tag not in substitution_probabilities or random.random() > substitution_probabilities[tag]:
 		final_words.append(spaced(word))

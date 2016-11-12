@@ -18,7 +18,7 @@ texty= soup.prettify()
 texty = texty.replace("student", "AMAZING Student")
 #Replaced the image with my own
 texty = texty.replace("https://testbed.files.wordpress.com/2012/09/bsi_exposition_041316_192.jpg", "stevenhoh.jpg")
-"Unfortunately, "
+"Unfortunately, photo is very blurry because of low resolution. Apologies, it was too late to fix it."
 #Changed the logo with the logo that was provided
 texty = texty.replace("logo2.png", "logo.png")
 
@@ -36,7 +36,7 @@ coup.close()
 
 
 
-
+"Code below is just my previous pains and sufferings that I would to keep to remind myself."
 
 
 # tags = soup.find_all("div", {"class":"menu-block-wrapper menu-block-1 menu-name-main-menu parent-mlid-0 menu-level-2"})

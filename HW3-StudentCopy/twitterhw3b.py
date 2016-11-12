@@ -10,23 +10,21 @@ import tweepy
 from textblob import TextBlob
 import sys
 
-access_token = "2304113095-9WJv6Q4jwUVurnkd0M92OMR9kRm9POFVI23BsCQ"
-access_token_secret = "en75xKwsthO2d1mgdtpIdHjkBWV1HaZyw6KkPkDT92BLY"
-consumer_key = "sRAjeZ3AQwedfc11WSxH0MS0D"
-consumer_secret = "nUHPY4b6PedYd6swMyI3wYf4p9TFdvKg8pESJZH5c98PuEV2Iu"
 # Boilerplate code here
 auth = tweepy.OAuthHandler(consumer_key,consumer_secret)
 auth.set_access_token(access_token,access_token_secret)
 
+# Sets a variable with tweepy API. 
 api = tweepy.API(auth)
-#Now we can Create Tweets, Delete Tweets, and Find Twitter Users
 
+
+# Receives an input from the user
 public_tweets = api.search(input("Please give a Twitter search: "))
-count = 0
-polarcount = 0
-subjectcount = 0
+count = 0 #Count for getting the average
+polarcount = 0 #Counts every polar (adds the polarity)
+subjectcount = 0 #Counts every subject (adds the subjectivity)
 
-
+# Code that was provided by GSI to allow tweets to be printed
 def uprint(*objects, sep='', end='\n', file=sys.stdout):
 	enc = file.encoding
 	if enc == 'UTF-8':
@@ -35,14 +33,17 @@ def uprint(*objects, sep='', end='\n', file=sys.stdout):
 		f = lambda obj: str(obj).encode(enc, errors='backslashreplace')
 		print(*map(f, objects), sep=sep, end=end, file=file)
 
+
 for tweet in public_tweets:
 	uprint(tweet.text)
 	analysis = TextBlob(tweet.text)
+	#Receives the polarity counts
 	polarcount += analysis.sentiment.polarity
+	#Receives the subjectivity counts
 	subjectcount += analysis.sentiment.subjectivity
 	count += 1
 
-
+#Finding the average for both polarity and subjectivity
 polaravg = polarcount / count
 subjectavg = subjectcount / count
 
